@@ -24,7 +24,10 @@ function sendText(text) {
 
 // LINEトーク画面上でメッセージ送信
 function sendMessages(text) {
-    
+    initializeLiff(liffId);
+    if(!liff.isLoggerdIn()){
+        liff.login();;
+    }
     liff.sendMessages([{
         'type': 'text',
         'text': "以下の内容でお申込みを受付けました。"
